@@ -1,0 +1,69 @@
+ /* Custom CSS */
+ .footer {
+    background-color: #f8f9fa;
+    padding: 40px 0;
+    box-shadow: 0 -5px 10px rgba(0, 123, 255, 0.2); /* Add shadow at the top */
+  }
+
+  .footer h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .footer ul {
+    padding: 0;
+  }
+
+  .footer ul li {
+    list-style: none;
+    margin-bottom: 10px;
+  }
+
+  .footer a {
+    text-decoration: none;
+    color: #000;
+    transition: color 0.3s; /* Add transition for color change on hover */
+  }
+
+  .footer a:hover {
+    color: #007bff; /* Change color on hover */
+  }
+
+  .footer p {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .bold-text {
+    font-weight: bold;
+  }
+  .social-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .social-list li {
+    display: inline-block;
+    margin: 0 10px; /* Adjust margin as needed */
+    text-align: center;
+  }
+  
+  .social-list a {
+    text-decoration: none;
+    display: block;
+    color: #333; /* Adjust text color as needed */
+  }
+  
+  .social-list i {
+    font-size: 24px; /* Adjust icon size as needed */
+  }
+  
+  .social-list h3 {
+    margin: 0;
+    font-weight: bold;
+    font-size: 16px; /* Adjust text size as needed */
+  }
+  .text-justify{
+    text-align: justify;
+  }
+  
