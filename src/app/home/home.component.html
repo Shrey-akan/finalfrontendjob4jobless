@@ -2,7 +2,7 @@
   <div class="row" style="position: relative;">
     <div class="col-md-12">
       <!-- Background with image -->
-      <img src="assets/homepage@4x-8.png" alt="Hero Image" class="img-fluid" style="max-height: 70vh;">
+      <img src="assets/home page banner@4x-8.png" alt="Hero Image" class="img-fluid" style="max-height: 70vh;">
 
       <!-- Text container with a transparent background -->
       <!-- <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(119, 114, 114, 0.6); color: black; padding: 20px; border-radius: 5px;">
@@ -123,7 +123,7 @@
 
   
 
-  <div class="container-fluid">
+  <div class="container-fluid mt-4">
     <div id="testimonialCarousel" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -156,7 +156,7 @@
 
 
   <div class="container text-center" style="margin: 50px auto;">
-  <h2>Best Companies to Work For</h2>
+  <h2  style="font-size: 1.5rem; text-shadow: 3px 3px 5px #888; color: black;">Best Companies to Work For</h2>
   <div class="row">
     <ng-container *ngFor="let company of companies.slice(0, showMore ? companies.length : initialDisplayCount); let i = index">
       <div class="col-md-3">
@@ -220,7 +220,7 @@
   </div> -->
   
   <div class="container mt-4">
-    <h2 class="text-center">SEARCH JOBS BY STATE</h2>
+    <h2 class="text-center" style="font-size: 1.5rem; text-shadow: 3px 3px 5px #888; color: black;">SEARCH JOBS BY STATE</h2>
     <div class="row">
       <div class="col-md-4" *ngFor="let state of states; let i = index">
         <p class="state-text" *ngIf="showAll || i < 9">{{ state }}</p>
@@ -238,14 +238,17 @@
   
   <section class="blog-posts" style="margin: 50px auto;">
     <div class="container">
+      <h1 class="text-center" style="font-size: 2rem; text-shadow: 3px 3px 5px #888; color: black;">Blogs</h1>
       <div class="row">
         <!-- Blog Post 1 -->
         <div class="col-md-4 d-flex">
           <div class="card mb-4 shadow d-flex flex-column">
             <img src="assets/Connecting-Perfect-Matches-min (1).jpg" alt="Blog Post 1" class="card-img-top">
             <div class="card-body d-flex flex-column">
-              <h2 class="card-title">Connecting Perfect Matches</h2>
-              <p class="card-text text-justify">At Job 4 Jobless, our aim is to bridge the gap between job seekers and employers seamlessly. We're dedicated to pairing the right talent with the perfect job opportunities. Our platform facilitates these connections, ensuring that job seekers and employers find their ideal match for a brighter future.</p>
+              <h2 class="card-title">Create Outstanding Resume
+              </h2>
+              <p class="card-text text-justify">In today's competitive job market, having an outstanding resume is more important than ever. Your resume is often the first impression you make on a potential employer, so it's crucial to make it count. To help you create a resume that grabs attention, we've compiled a list of dos and don'ts. Follow these guidelines to craft a resume that stands out from the crowd.
+              </p>
               <a routerLink="/job4joblessp" class="btn btn-primary mt-auto">Read More</a>
             </div>
           </div>
@@ -256,8 +259,10 @@
           <div class="card mb-4 shadow d-flex flex-column">
             <img src="assets/Seamless-Experience-min.jpg" alt="Blog Post 2" class="card-img-top">
             <div class="card-body d-flex flex-column">
-              <h2 class="card-title">Seamless Experience</h2>
-              <p class="card-text text-justify">We prioritize user-friendly design and intuitive navigation. JOB4JOBLESS offers a seamless experience, making your job search effortless. Our platform's smooth flow ensures that whether you're browsing job listings, applying, or connecting with employers, your journey is hassle-free. Your path to career success is built on a foundation of simplicity and efficiency.</p>
+              <h2 class="card-title">Stress-Free Job Hunting 
+              </h2>
+              <p class="card-text text-justify">Are you feeling overwhelmed and stressed out by the job hunting process? You're not alone. Searching for a job can be a challenging and anxiety-inducing experience. But don't worry, we're here to help! Here are some stress-free job hunting tips to help you manage the stress and make the process a little bit easier.
+              </p>
               <a routerLink="/job4joblessp" class="btn btn-primary mt-auto">Read More</a>
             </div>
           </div>
@@ -268,8 +273,10 @@
           <div class="card mb-4 shadow d-flex flex-column">
             <img src="assets/Expertise-&-Experience-min.jpg" alt="Blog Post 3" class="card-img-top">
             <div class="card-body d-flex flex-column">
-              <h2 class="card-title">Expertise & Experience</h2>
-              <p class="card-text text-justify">Our platform values both the expertise of seasoned professionals and the fresh energy of newcomers. We celebrate the diversity of skills and experiences, fostering a vibrant community where everyone's unique talents are recognized and appreciated. Whether you're a seasoned pro or just starting your career, JOB4JOBLESS is your partner on your journey to success.</p>
+              <h2 class="card-title">Powerful Assessments Tool
+              </h2>
+              <p class="card-text text-justify">In today's competitive job market, employers are constantly seeking ways to identify the most qualified candidates for their organizations. With the ever-changing landscape of skills and competencies required in various industries, it can be challenging to accurately assess an individual's abilities. This is where assessments come into play, serving as a powerful tool for skill validation.
+              </p>
               <a routerLink="/job4joblessp" class="btn btn-primary mt-auto">Read More</a>
             </div>
           </div>

@@ -11,8 +11,7 @@
                                     <a routerLink="/finjobpage">
                                         <div class="input-group rounded">
                                             <input type="text" id="findjob" name="findjob" class="form-control rounded"
-                                                placeholder="What job title, keywords or company"
-                                                [(ngModel)]="searchQuery" />
+                                                placeholder="Search Career or Company" [(ngModel)]="searchQuery" />
                                             <div class="input-group-append">
                                                 <button class="btn btn-primary rounded" type="button">Search</button>
                                             </div>
@@ -75,14 +74,15 @@
 
 
 <div class="container">
-    <h2 class="text-center">Top Recruiters Hiring</h2>
+    <h2 class="text-center mt-4" style="font-size: 2rem; text-shadow: 3px 3px 5px #888; color: black;">Top Recruiters
+        Hiring</h2>
     <div class="row m-4">
-        <div *ngFor="let company of companies" class="col-md-3">
-            <div class="company-logo">
+        <div class="logo-container">
+            <div *ngFor="let company of companies" class="company-logo">
                 <img [src]="company.logoUrl" alt="{{ company.name }}" />
-                <!-- <span>{{ company.name }}</span> -->
             </div>
         </div>
+
     </div>
 </div>
 
@@ -208,37 +208,31 @@
         </div>
     </div>
 </div>
-<div class="container-fluid my-4 p-4 bg-light-blue">
+<div class="container-fluid my-4 "
+    style="background-image: url('assets/Boost-Your-Job-Hunt.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center center; padding: 6rem;">
+
     <div class="row">
         <!-- Main Content Column with Image -->
         <div class="col-md-6 text-center">
 
-            <img src="assets/logojob.png" alt="Your Image" class="card-img-top" style="max-width: 20%; height: auto;">
-            <div class="card-body">
-                <h2 class="card-title">Boost Your Job Hunt</h2>
+
+            <!-- <div class="card-body">
+                <h2 class="card-title" style="font-size: 2rem; text-shadow: 3px 3px 5px #888; color: black;">Boost Your Job Hunt</h2>
                 <p class="card-text">
                     Get a CV that highlights your profile and increases views by up to 50%.
                 </p>
-            </div>
+            </div> -->
 
         </div>
         <!-- First Additional Column -->
-        <div class="col-md-3">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Resume Spotlight</h4>
-                    <p class="card-text">
-                        Stand out from the crowd! We highlight your profile to get it easily noticed by employers.
-                    </p>
-                    <a href="#" class="btn btn-primary btn-custom">Know More</a>
-                </div>
-            </div>
+        <div class="col-md-2">
+
         </div>
         <!-- Second Additional Column -->
         <div class="col-md-3">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Resume Spotlight</h4>
+                    <h2 class="card-title"><b>Resume Spotlight</b></h2>
                     <p class="card-text">
                         Stand out of the crowd! We highlight your profile to get it easily noticed by Employers.
                     </p>
@@ -251,14 +245,14 @@
 
 <div class="container">
     <div class="row text-center mt-4" style="color: blue;">
-        <h3><b>PRODUCTS AND SERVICES</b></h3>
-        <h2>Get Pay Right</h2>
+        <h1><b>PRODUCTS AND SERVICES</b></h1>
+
     </div>
     <div class="row" style="padding-bottom: 10px;">
         <div class="col-md-6" style="border-right: 2px solid blue;">
             <div class="container">
                 <div class="row">
-                    <h1>For Employers</h1>
+                    <h1><b>For Employers</b></h1>
                     <h3>Empower your team with an automated hiring process and build your team with top-tier talent to
                         drive success and innovation in your organization.</h3>
                 </div>
@@ -266,10 +260,12 @@
                     <div class="container">
                         <div class="row concom">
                             <div class="col-md-3">
-                                <img src="assets/Applicant Tracking System (ATS).png" alt="">
+                                <img src="assets/Applicant Tracking System (ATS) (1).png" alt="">
                             </div>
                             <div class="col-md-9">
-                                <a href="/">Applicant Tracking System (ATS)</a>
+                                <a href="/">
+                                    <h2>Applicant Tracking System (ATS)</h2>
+                                </a>
                                 <p>Streamline your hiring processes with the help of ATS, which allows employers to
                                     manage job applications, schedule interviews, communicate with candidates, and track
                                     applicant status.</p>
@@ -281,11 +277,11 @@
                     <div class="container">
                         <div class="row concom">
                             <div class="col-md-3">
-                                <img src="assets/Analytics and Insights.png" alt="">
+                                <img src="assets/Job Posting and Promotion (1).png" alt="">
                             </div>
                             <div class="col-md-9">
                                 <a href="/">
-                                    Job Posting and Promotion:
+                                    <h2> Job Posting and Promotion:</h2>
                                 </a>
                                 <p>Create detailed job descriptions, specify job requirements, set desired
                                     qualifications easily and promote job listings to reach a larger talent pool.
@@ -298,11 +294,11 @@
                     <div class="container">
                         <div class="row concom">
                             <div class="col-md-3">
-                                <img src="assets/Job Posting and Promotion.png" alt="">
+                                <img src="assets/Resume Database Access.png" alt="">
                             </div>
                             <div class="col-md-9">
                                 <a href="/">
-                                    Resume Database Access:
+                                    <h2> Resume Database Access:</h2>
                                 </a>
                                 <p>Employers can search for potential candidates from the vast database of resumes and
                                     profiles using various filters like skills, experience, location, and more.
@@ -315,14 +311,15 @@
                     <div class="container">
                         <div class="row concom">
                             <div class="col-md-3">
-                                <img src="assets/Talent Pool.png" alt="">
+                                <img src="assets/Analytics and Insights (1).png" alt="">
                             </div>
                             <div class="col-md-9">
-                                <a href="/">Applicant Tracking System (ATS):</a>
-                                <p> Streamline your hiring processes with the help of ATS, which allows employers to
-                                    manage job applications, schedule interviews, communicate with candidates, and track
-                                    applicant status.
-                                </p>
+                                <a href="/">
+                                    <h2>Analytics and Insights:</h2>
+                                </a>
+                                <p>Our analytics tools allow employers to track the performance of their job listings.
+                                    These insights help employers make data-driven decisions, optimize job postings, and
+                                    allocate resources.</p>
                             </div>
                         </div>
                     </div>
@@ -331,11 +328,11 @@
                     <div class="container">
                         <div class="row concom">
                             <div class="col-md-3">
-                                <img src="assets/Sea of Opportunity.png" alt="">
+                                <img src="assets/Company Branding.png" alt="">
                             </div>
                             <div class="col-md-9">
                                 <a href="/">
-                                    4. Company Branding:
+                                    <h2> Company Branding:</h2>
                                 </a>
                                 <p>Showcasing a strong employer brand can attract more qualified candidates who align
                                     with the company's values and culture.</p>
@@ -345,10 +342,10 @@
                 </div>
                 <div class="row mt-4">
                     <div class="container">
-                        <div class="row">
-                            <h4>Analytics and Insights:</h4>
+                        <!-- <div class="row">
+                            <h2>Analytics and Insights:</h2>
                             <p>Our analytics tools allow employers to track the performance of their job listings.</p>
-                        </div>
+                        </div> -->
                         <div class="">
                             <button routerLink="/employer" class="btn btn-primary">SEE IT IN ACTION</button>
                         </div>
@@ -359,7 +356,7 @@
         <div class="col-md-6" style="border-left: 2px solid blue;">
             <div class="container">
                 <div class="row">
-                    <h1>For Employees</h1>
+                    <h1><b>For Job Seekers</b></h1>
                     <h3>Simplify your job search with job alerts, resume building, detailed insights on your application
                         process and resources
                     </h3>
@@ -368,10 +365,11 @@
                     <div class="container">
                         <div class="row concom">
                             <div class="col-md-3">
-                                <img src="assets/Sea of Opportunity.png" alt="">
+                                <img src="assets/Job Search and Alerts.png" alt="">
                             </div>
                             <div class="col-md-9">
-                                <a href="/">Job Search and Alerts:
+                                <a href="/">
+                                    <h2>Job Search and Alerts:</h2>
                                 </a>
                                 <p>Get relevant search results by setting up job alerts to receive notifications when
                                     new job listings that match your criteria are posted.
@@ -384,10 +382,11 @@
                     <div class="container">
                         <div class="row concom">
                             <div class="col-md-3">
-                                <img src="assets/Job Posting and Promotion.png" alt="">
+                                <img src="assets/Resume Building and Posting.png" alt="">
                             </div>
                             <div class="col-md-9">
-                                <a href="/"> Resume Building and Posting:
+                                <a href="/">
+                                    <h2>Resume Building and Posting:</h2>
                                 </a>
                                 <p>Job seekers can create professional and compelling resumes with the help of a resume
                                     builder tool.
@@ -400,10 +399,11 @@
                     <div class="container">
                         <div class="row concom">
                             <div class="col-md-3">
-                                <img src="assets/Screenshot-2023-08-25-110628.png" alt="">
+                                <img src="assets/Company Reviews and Insights.png" alt="">
                             </div>
                             <div class="col-md-9">
-                                <a href="/"> Company Reviews and Insights:
+                                <a href="/">
+                                    <h2> Company Reviews and Insights:</h2>
                                 </a>
                                 <p>Get in-depth company insight into a company's culture, work environment, and employee
                                     experiences, reviews and ratings
@@ -416,10 +416,11 @@
                     <div class="container">
                         <div class="row concom">
                             <div class="col-md-3">
-                                <img src="assets/Sea of Opportunity.png" alt="">
+                                <img src="assets/Application Tracking.png" alt="">
                             </div>
                             <div class="col-md-9">
-                                <a href="/">Application Tracking:
+                                <a href="/">
+                                    <h2>Application Tracking:</h2>
                                 </a>
                                 <p>Track the status of your job applications. See when your application was viewed
                                     shortlisted for interviews, and receive updates on your application progress.
@@ -432,10 +433,12 @@
                     <div class="container">
                         <div class="row concom">
                             <div class="col-md-3">
-                                <img src="assets/Screenshot-2023-08-25-110628.png" alt="">
+                                <img src="assets/Career Resources.png" alt="">
                             </div>
                             <div class="col-md-9">
-                                <a href="/">Career Resources</a>
+                                <a href="/">
+                                    <h2>Career Resources</h2>
+                                </a>
                                 <p>Our articles, blogs, and newsletters provide valuable insights on resume writing,
                                     interview preparation, salary negotiation, and career growth for both job seekers
                                     and employers.
@@ -446,10 +449,10 @@
                 </div>
                 <div class="row mt-4">
                     <div class="container">
-                        <div class="row">
-                            <h4>It's Easy to Get Started</h4>
+                        <!-- <div class="row">
+                            <h2>It's Easy to Get Started</h2>
                             <p>Simplify your job search and career development — see how with a personalized demo.</p>
-                        </div>
+                        </div> -->
                         <div class="">
                             <button routerLink="/login" class="btn btn-primary">GET START</button>
                         </div>
@@ -466,15 +469,15 @@
         <!-- Content Column with Animation -->
         <div class="col-md-6 d-flex align-items-center ">
             <div>
-                <h1 class="text-center">Get access to 64k+ jobs on the job4jobless app</h1>
-                <p class="text-center">Get real-time job updates & new job notifications!</p>
-                <p class="text-center">Scan to download</p>
+                <h1 class="text-center"><b>Get access to 64k+ jobs on the job4jobless app</b></h1>
+                <h2 class="text-center">Get real-time job updates & new job notifications!</h2>
+                <h2 class="text-center">Scan to download</h2>
             </div>
         </div>
         <!-- Image Column with Background Color and Padding -->
-        <div class="col-md-6">
-            <img src="assets/home-download-banner.63c94cdb-removebg-preview.png" alt="Download QR Code"
-                class="img-fluid d-block mx-auto my-4">
+        <div class="col-md-6 text-center">
+            <!-- <img src="assets/job4jobless-app.png" alt="Download QR Code" > -->
+            <img src="assets/job4jobless-app-01.png" style="height:40vh;" alt="">
         </div>
     </div>
 </div>

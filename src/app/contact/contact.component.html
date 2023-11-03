@@ -8,7 +8,7 @@
         <div class="col-md-6">
             <div class="card contact-form">
                 <div class="card-body">
-                    <h5 class="card-title">Contact Us</h5>
+                    <h1 class="card-title text-center"  style="font-size: 2rem; text-shadow: 3px 3px 5px #888; color: black;">Contact Us</h1>
                     <form [formGroup]="contactForm" (ngSubmit)="onSubmitForm()">
                         <div class="mb-3">
                             <label for="exampleInputName" class="form-label">Name</label>
@@ -16,7 +16,7 @@
                             <!-- Add error message handling here if needed -->
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <label for="exampleInputEmail1" class="form-label">Email Address</label>
                             <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email">
                             <div *ngIf="contactForm.get('email')?.hasError('required') && (contactForm.get('email')?.dirty || contactForm.get('email')?.touched)" class="text-danger">
                                 Email is required.

@@ -9,9 +9,7 @@ a:hover{
     border-left: 1px solid blueviolet;
 
 }
-img{
-    width: 100%;
-}
+
 .category-location-container {
     display: flex;
     justify-content: center;
@@ -105,6 +103,7 @@ img{
   .bg-light-blue {
     background-color: #b8deec; /* You can use any other light blue color code you prefer. */
   }
+  
   .btn-custom {
     background-color: #007BFF; /* Change to your preferred color */
     color: white;
@@ -137,4 +136,24 @@ img{
 .page-info {
   margin: 0 20px;
   font-size: 18px;
+}
+.logo-container {
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+}
+
+.company-logo {
+  display: inline-block;
+  margin-right: 20px; /* Adjust the margin as needed to control the spacing between logos */
+  animation: moveRight 11s linear infinite;
+}
+
+@keyframes moveRight {
+  0% {
+      transform: translateX(100%);
+  }
+  100% {
+      transform: translateX(-100%);
+  }
 }
