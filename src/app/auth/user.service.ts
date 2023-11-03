@@ -352,7 +352,7 @@ export class UserService {
                 this.cookie.set('refreshToken', responseBody.refreshToken);
                 console.log("refresh token saved ", responseBody.refreshToken);
                 // Inside your logincheckgmail function
-     
+
                 AuthInterceptor.accessToken = accessToken;
                 // Check if both accessToken and uid are present to determine authentication
                 const isAuthenticated = accessToken && uid;
@@ -512,24 +512,24 @@ export class UserService {
               // API call was successful
               const responseBody = response.body;
               console.log('API Response:', responseBody);
-console.log("Response",response.accessToken);
+              console.log("Response", response.accessToken);
 
               // You can access the data from the response as needed, e.g., responseBody.accessToken
               const accessToken = responseBody.accessToken;
               const empid = responseBody.empid;
-			console.log("AccessToken",accessToken);
-console.log("empid",empid);
+              console.log("AccessToken", accessToken);
+              console.log("empid", empid);
               // Handle the response data here
               if (accessToken && empid) {
-                console.log("Access Token Generated" +accessToken);
+                console.log("Access Token Generated" + accessToken);
                 const mainres: Employer = response;
                 console.log(`Login response from server: ${mainres}`);
-                 this.cookie.set('emp', empid);
-          this.cookie.set('accessToken', accessToken);
-          this.cookie.set('refreshToken', responseBody.refreshToken);
-          console.log('Refresh Token Saved:', responseBody.refreshToken);
+                this.cookie.set('emp', empid);
+                this.cookie.set('accessToken', accessToken);
+                this.cookie.set('refreshToken', responseBody.refreshToken);
+                console.log('Refresh Token Saved:', responseBody.refreshToken);
                 // Inside your logincheckgmail function
-                
+
                 AuthInterceptor.accessToken = accessToken;
                 // Check if both accessToken and empid are present to determine authentication
                 // Check if both accessToken and empid are present to determine authentication
