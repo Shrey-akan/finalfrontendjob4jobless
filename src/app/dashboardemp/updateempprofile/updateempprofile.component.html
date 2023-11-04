@@ -19,8 +19,15 @@
       <input type="tel" id="empphone" formControlName="empphone" class="form-control" required>
     </div>
     <div class="form-group">
-      <label for="empcountry">Country</label>
-      <input type="text" id="empcountry" formControlName="empcountry" class="form-control" required>
+      <label for="empcountry">Country:</label>
+      <select id="empcountry" formControlName="empcountry" class="form-control" required>
+        <option value="">Select your country</option>
+        <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+      </select>
+    </div>
+   
+    <div *ngIf="employeeForm.get('empcountry')?.hasError('required') && employeeForm.get('empcountry')?.touched" class="text-danger">
+      Country is required.
     </div>
     <div class="form-group">
       <label for="empstate">State</label>

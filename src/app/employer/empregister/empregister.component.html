@@ -97,7 +97,13 @@
 
               <div class="form-group">
                 <label for="empcountry">Country:</label>
-                <input type="text" id="empcountry" formControlName="empcountry" class="form-control" required placeholder="Enter your country">
+                <select id="empcountry" formControlName="empcountry" class="form-control" required>
+                  <option value="">Select your country</option>
+                  <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+                </select>
+              </div>
+              <div *ngIf="employerdetails.get('empcountry')?.hasError('required') && employerdetails.get('empcountry')?.touched" class="text-danger">
+                Country is required.
               </div>
               
               <div class="form-group">

@@ -11,6 +11,7 @@ import { UserService } from 'src/app/auth/user.service';
 })
 export class EmpregisterComponent {
   isHovered = false;
+  countries: string[]=[];
   employerdetails: FormGroup;
   formSubmitted: any;
   empPasswordVisible: boolean = false;
@@ -98,6 +99,11 @@ this.router.navigate(['/employer/optverify', payload.empid]);
   toggleEmpPasswordVisibility() {
     this.empPasswordVisible = !this.empPasswordVisible;
   }
-  ngOnInit(): void {  }
+  ngOnInit(): void {
+
+    this.http.get<any[]>('https://restcountries.com/v3/all').subscribe((data) => {
+      this.countries = data.map(country => country.name.common);
+    });
+    }
 
 }

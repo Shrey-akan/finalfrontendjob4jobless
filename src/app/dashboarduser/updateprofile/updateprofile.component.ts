@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -26,6 +27,7 @@ interface User {
 })
 export class UpdateprofileComponent implements OnInit {
   userform!: FormGroup;
+  countries: string[]=[];
   userData1: any;
   abc: any;
 
@@ -34,7 +36,8 @@ export class UpdateprofileComponent implements OnInit {
     private b1: UserService,
     private route: ActivatedRoute,
     private router: Router,
-    public cookie: CookieService
+    public cookie: CookieService,
+    private http:HttpClient
   ) {}
 
   userID: String = "0";
@@ -76,6 +79,10 @@ export class UpdateprofileComponent implements OnInit {
       websiteuser: ['', Validators.required]
       // Set the default value for userName using abc
     // This line sets the default value for userName
+    });
+
+    this.http.get<any[]>('https://restcountries.com/v3/all').subscribe((data) => {
+      this.countries = data.map(country => country.name.common);
     });
   }
 

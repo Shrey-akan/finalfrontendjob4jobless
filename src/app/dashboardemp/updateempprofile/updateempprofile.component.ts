@@ -5,6 +5,7 @@ import { catchError, throwError } from 'rxjs';
 import { UserService } from 'src/app/auth/user.service';
 import { ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-updateempprofile',
   templateUrl: './updateempprofile.component.html',
@@ -12,6 +13,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class UpdateempprofileComponent implements OnInit {
   employeeForm!: FormGroup;
+  countries: string[]=[];
   empDetail: any;
   abc: any;
 
@@ -20,7 +22,8 @@ export class UpdateempprofileComponent implements OnInit {
     private b1: UserService,
     private route:ActivatedRoute,
     private router:Router,
-    public cookie:CookieService
+    public cookie:CookieService,
+    private http:HttpClient
   ) { }
   empId: String = "0";
   ngOnInit() {
@@ -64,7 +67,9 @@ export class UpdateempprofileComponent implements OnInit {
       descriptionemp: ['', Validators.required]
     });
    
-
+    this.http.get<any[]>('https://restcountries.com/v3/all').subscribe((data) => {
+      this.countries = data.map(country => country.name.common);
+    });
 
 
   }

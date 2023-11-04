@@ -11,6 +11,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RegisterComponent implements OnInit {
   isHovered = false;
+  countries: string[]=[];
   userregister!: FormGroup;
   formSubmitted: any;
   passwordVisible: boolean = false;
@@ -46,7 +47,9 @@ export class RegisterComponent implements OnInit {
     // let responce = this.b1.viewuserdetailservice();
     // responce.subscribe((data1: any)=>this.data=data1);
 
-
+    this.http.get<any[]>('https://restcountries.com/v3/all').subscribe((data) => {
+      this.countries = data.map(country => country.name.common);
+    });
 
   }
 
