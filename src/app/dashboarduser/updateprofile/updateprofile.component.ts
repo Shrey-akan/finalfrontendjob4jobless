@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { catchError, throwError } from 'rxjs';
 import { UserService } from 'src/app/auth/user.service';
-
+import * as intelInput from "intl-tel-input";
 interface User {
   uid: Number;
   userName: String;
@@ -43,6 +43,15 @@ export class UpdateprofileComponent implements OnInit {
   userID: String = "0";
 
   ngOnInit() {
+
+    const innputElement=document.getElementById("empphone");
+    if(innputElement)
+    {
+      intelInput(innputElement,{initialCountry:"US",
+    separateDialCode:true,
+  utilsScript:"https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.0/js/utils.js"})
+    }
+
     this.userID = this.cookie.get('uid');
     console.log(this.userID);
     console.log('User ID from cookie:', this.userID);

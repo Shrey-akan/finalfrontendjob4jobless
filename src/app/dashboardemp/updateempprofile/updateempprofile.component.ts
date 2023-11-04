@@ -6,6 +6,7 @@ import { UserService } from 'src/app/auth/user.service';
 import { ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClient } from '@angular/common/http';
+import * as intelInput from "intl-tel-input";
 @Component({
   selector: 'app-updateempprofile',
   templateUrl: './updateempprofile.component.html',
@@ -27,7 +28,14 @@ export class UpdateempprofileComponent implements OnInit {
   ) { }
   empId: String = "0";
   ngOnInit() {
-
+    const innputElement = document.getElementById("empphone");
+if (innputElement) {
+      intelInput(innputElement, {
+        initialCountry: "In",
+        separateDialCode: true,
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.0/js/utils.js"
+      })
+    }
 
     this.empId = this.cookie.get('emp');
 

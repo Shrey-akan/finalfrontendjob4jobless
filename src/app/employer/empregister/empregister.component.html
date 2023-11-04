@@ -79,14 +79,9 @@
                 <label for="empphone">Phone:</label>
                 <div class="input-group">
                   <div class="input-group-prepend">
-                 
                   </div>
-                  <!-- <select id="empcountryCode" formControlName="empcountryCode" class="form-control">
-                                    <option value="+1" data-flag="us">+1 (USA)</option>
-                                    <option value="+44" data-flag="gb">+44 (UK)</option>
-                                
-                                  </select> -->
-                  <input type="tel" id="empphone" formControlName="empphone" class="form-control" required>
+                  <input type="tel" id="empphone" class="form-control" formControlName="empphone" placeholder="Enter Phone" required>
+                 
                 </div>
                 <div *ngIf="employerdetails.get('empphone')?.hasError('pattern')" class="text-danger">
                   Please enter a valid 10-digit phone number.

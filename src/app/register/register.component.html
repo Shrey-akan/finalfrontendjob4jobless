@@ -80,7 +80,8 @@
               </div>
               <div class="form-group">
                 <label for="userphone">Phone (10 digits, numbers only):</label>
-                <input type="tel" class="form-control" formControlName="userphone" placeholder="Enter Phone">
+                <input type="tel" id="phone" class="form-control" formControlName="userphone" placeholder="Enter Phone"/>
+                <!-- <input type="tel" class="form-control" formControlName="userphone" placeholder="Enter Phone"> -->
                 <div
                   *ngIf="userregister.get('userphone')?.hasError('required') && userregister.get('userphone')?.touched"
                   class="text-danger">Phone number is required.

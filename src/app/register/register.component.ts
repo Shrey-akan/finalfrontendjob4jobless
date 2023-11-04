@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../auth/user.service';
 import { HttpClient } from '@angular/common/http';
-
+import * as intelInput from "intl-tel-input";
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RegisterComponent implements OnInit {
   isHovered = false;
-  countries: string[]=[];
+  countries: string[] = [];
   userregister!: FormGroup;
   formSubmitted: any;
   passwordVisible: boolean = false;
@@ -25,6 +25,16 @@ export class RegisterComponent implements OnInit {
 
 
   ngOnInit(): void {
+
+
+    const innputElement = document.getElementById("phone");
+if (innputElement) {
+      intelInput(innputElement, {
+        initialCountry: "In",
+        separateDialCode: true,
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.0/js/utils.js"
+      })
+    }
     this.userregister = this.formBuilder.group({
       userFirstName: ['', Validators.required],
       userLastName: ['', Validators.required],
@@ -62,12 +72,12 @@ export class RegisterComponent implements OnInit {
         console.log('User Info:', user);
         const userName = user.email;
         console.log(userName);
-        if(user.email){
+        if (user.email) {
           const username = user.email;
           console.log(userName);
           this.userservice.createOrGetUser(userName);
         }
-        else{
+        else {
           console.error('User email is null. Handle this case as needed.');
         }
       })

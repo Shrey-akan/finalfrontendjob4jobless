@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/auth/user.service';
-
+import * as intelInput from "intl-tel-input";
 @Component({
   selector: 'app-empregister',
   templateUrl: './empregister.component.html',
@@ -100,6 +100,15 @@ this.router.navigate(['/employer/optverify', payload.empid]);
     this.empPasswordVisible = !this.empPasswordVisible;
   }
   ngOnInit(): void {
+
+    const innputElement = document.getElementById("empphone");
+if (innputElement) {
+      intelInput(innputElement, {
+        initialCountry: "In",
+        separateDialCode: true,
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.0/js/utils.js"
+      })
+    }
 
     this.http.get<any[]>('https://restcountries.com/v3/all').subscribe((data) => {
       this.countries = data.map(country => country.name.common);
