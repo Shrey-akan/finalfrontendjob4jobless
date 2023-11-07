@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder,FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/auth/user.service';
 
 @Component({
@@ -11,7 +11,6 @@ export class ResumeComponent implements OnInit {
   @ViewChild('resumeCanvas', { static: false }) resumeCanvas: ElementRef<HTMLCanvasElement> | undefined;
   resumeForm!: FormGroup;
   currentStep = 1;
-  newSkill: string = '';
   isSubmitting = false;
 
   constructor(private fb: FormBuilder, private http: UserService) {}
@@ -22,7 +21,7 @@ export class ResumeComponent implements OnInit {
       rmail: ['', [Validators.required, Validators.email]],
       rphone: ['', Validators.required],
       experience: ['', Validators.required],
-      skills: new FormControl([]),
+      skills: ['', Validators.required],
       projectlink: [''],
       description: ['', Validators.required],
     });
@@ -59,7 +58,7 @@ export class ResumeComponent implements OnInit {
         context.fillText('Email: ' + resumeData.rmail, 50, 100);
         context.fillText('Phone: ' + resumeData.rphone, 50, 150);
         context.fillText('Experience: ' + resumeData.experience, 50, 200);
-        context.fillText('Skills: ' + resumeData.skills.join(', '), 50, 250);
+        context.fillText('Skills: ' + resumeData.skills, 50, 250);
         context.fillText('Project Link: ' + resumeData.projectlink, 50, 300);
         context.fillText('Description: ' + resumeData.description, 50, 350);
 
@@ -85,7 +84,7 @@ export class ResumeComponent implements OnInit {
         this.http.resumeinsert(resumeData).subscribe(
           (response) => {
             // Handle the response from the backend, e.g., show a success message
-            console.log('Submitted data to the backend:', response);
+            console.log('Submitted data to backend:', response);
 
             // Clear local storage and reset the form only after a successful submission
             this.resumeForm.reset();
@@ -93,7 +92,7 @@ export class ResumeComponent implements OnInit {
           },
           (error) => {
             // Handle errors, e.g., show an error message
-            console.error('Failed to submit data to the backend:', error);
+            console.error('Failed to submit data to backend:', error);
 
             // Set isSubmitting back to false to allow resubmission
             this.isSubmitting = false;
@@ -115,23 +114,5 @@ export class ResumeComponent implements OnInit {
 
   saveFormDataToLocalStorage() {
     localStorage.setItem('resumeFormData', JSON.stringify(this.resumeForm.value));
-  }
-
-  // Add a skill
-  addSkill(): void {
-    const skill = this.newSkill.trim();
-    if (skill && !this.resumeForm.value.skills.includes(skill)) {
-      this.resumeForm.value.skills.push(skill);
-      this.newSkill = ''; // Clear the input
-    }
-  }
-
-  // Remove a skill
-  removeSkill(skill: string): void {
-    const skills = this.resumeForm.value.skills;
-    const index = skills.indexOf(skill);
-    if (index !== -1) {
-      skills.splice(index, 1);
-    }
   }
 }

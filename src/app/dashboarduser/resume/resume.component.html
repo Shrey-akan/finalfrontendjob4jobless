@@ -31,13 +31,7 @@
 
       <div class="form-group">
         <label for="skills">Skills:</label>
-        <div class="skills-container">
-          <div class="skill-chip" *ngFor="let skill of resumeForm.value.skills">
-            {{ skill }}
-            <span class="remove-skill" (click)="removeSkill(skill)">x</span>
-          </div>
-        </div>
-        <input type="text" id="newSkill" class="form-control" placeholder="Add Skill" (keydown.enter)="addSkill()" [(ngModel)]="newSkill" />
+        <input type="text" id="skills" name="skills" formControlName="skills" class="form-control" />
       </div>
 
       <div class="form-group">
