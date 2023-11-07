@@ -1,23 +1,17 @@
 <div class="container mt-3 mb-3">
     <div class="row">
       <div class="col-md-6 col-lg-5">
-        <div class="input-group" (click)="showJobTitleDropdown = true">
-          <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
-          <input type="text" [(ngModel)]="searchJobTitle" class="form-control" placeholder="Enter job title">
-        </div>
-        <div class="dropdown" *ngIf="showJobTitleDropdown">
-          <ul class="dropdown-menu">
+        <div class="dropdown">
+          <input type="text" class="form-control" [(ngModel)]="searchJobTitle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" placeholder="Enter job title">
+          <ul class="dropdown-menu" *ngIf="showJobTitleDropdown">
             <li *ngFor="let title of allJobTitles" (click)="selectJobTitle(title)">{{ title }}</li>
           </ul>
         </div>
       </div>
       <div class="col-md-6 col-lg-5 mt-2 mt-md-0">
-        <div class="input-group" (click)="showLocationDropdown = true">
-          <span class="input-group-text"><i class="fa-sharp fa-solid fa-location-dot"></i></span>
-          <input type="text" [(ngModel)]="searchLocation" class="form-control" placeholder="Enter location">
-        </div>
-        <div class="dropdown" *ngIf="showLocationDropdown">
-          <ul class="dropdown-menu">
+        <div class="dropdown">
+          <input type="text" class="form-control" [(ngModel)]="searchLocation" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" placeholder="Enter location">
+          <ul class="dropdown-menu" *ngIf="showLocationDropdown">
             <li *ngFor="let location of allLocations" (click)="selectLocation(location)">{{ location }}</li>
           </ul>
         </div>
@@ -28,6 +22,7 @@
     </div>
   </div>
   
+
 <div class="container text-center mb-4">
     <p><b>Post your resume</b> - It only takes a few seconds</p>
 </div>
