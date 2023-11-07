@@ -23,8 +23,19 @@
                         </div>
                         <div class="mb-3">
                           <label class="form-label">Email:</label>
-                          <input type="jumail" class="form-control" formControlName="jumail">
+                          <input type="email" class="form-control" formControlName="jumail">
+                        
+                          <div *ngIf="myformsubmission.get('jumail')?.hasError('required')" class="text-danger">
+                            Email is required.
+                          </div>
+                          <div *ngIf="myformsubmission.get('jumail')?.hasError('email')" class="text-danger">
+                            Please enter a valid email address.
+                          </div>
+                          <div *ngIf="myformsubmission.get('jumail')?.hasError('pattern')" class="text-danger">
+                            Email must be a valid Gmail address.
+                          </div>
                         </div>
+                        
                         <div class="mb-3">
                           <label class="form-label" for="resume">Upload Resume:</label>
                           <input type="file" id="resume" class="form-control" formControlName="juresume">
@@ -178,17 +189,9 @@
                 <div class="card-body">
                   <h4>Job Title: {{ jobTitle }}</h4>
                   <p>Company Name: {{ companyName }}</p>
-                
+             
                   
-                  <details>
-                    <summary>View Full Job Description</summary>
-                    <ul>
-                      <li>
-                       
-                      </li>
-                    
-                    </ul>
-                  </details>
+                
                 </div>
               </div>
             </div>
