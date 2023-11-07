@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { FormBuilder,FormGroup, Validators } from '@angular/forms';
+import { FormBuilder,FormControl,FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/auth/user.service';
 
 @Component({
@@ -11,6 +11,7 @@ export class ResumeComponent implements OnInit {
   @ViewChild('resumeCanvas', { static: false }) resumeCanvas: ElementRef<HTMLCanvasElement> | undefined;
   resumeForm!: FormGroup;
   currentStep = 1;
+  newSkill: string = '';
   isSubmitting = false;
 
   constructor(private fb: FormBuilder, private http: UserService) {}
@@ -21,7 +22,7 @@ export class ResumeComponent implements OnInit {
       rmail: ['', [Validators.required, Validators.email]],
       rphone: ['', Validators.required],
       experience: ['', Validators.required],
-      skills: ['', Validators.required],
+      skills: new FormControl([]),
       projectlink: [''],
       description: ['', Validators.required],
     });
@@ -115,4 +116,22 @@ export class ResumeComponent implements OnInit {
   saveFormDataToLocalStorage() {
     localStorage.setItem('resumeFormData', JSON.stringify(this.resumeForm.value));
   }
+
+    // Add a skill
+    addSkill(): void {
+      const skill = this.newSkill.trim();
+      if (skill && !this.resumeForm.value.skills.includes(skill)) {
+        this.resumeForm.value.skills.push(skill);
+        this.newSkill = ''; // Clear the input
+      }
+    }
+  
+    // Remove a skill
+    removeSkill(skill: string): void {
+      const skills = this.resumeForm.value.skills;
+      const index = skills.indexOf(skill);
+      if (index !== -1) {
+        skills.splice(index, 1);
+      }
+    }
 }
