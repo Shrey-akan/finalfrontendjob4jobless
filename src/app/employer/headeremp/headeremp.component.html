@@ -36,7 +36,7 @@
         </li>
       </ul>
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!isEmpSignPage">
           <a class="nav-link" routerLink="/employer/empsign" routerLinkActive="active">
             <button class="btn btn-primary">Sign-in</button>
           </a>

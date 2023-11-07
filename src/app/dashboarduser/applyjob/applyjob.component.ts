@@ -33,7 +33,7 @@ export class ApplyjobComponent implements OnInit {
     this.myformsubmission = this.formBuilder.group({
 
       juname: ['', [Validators.required]],
-      jumail: ['', [Validators.required, Validators.email]],
+      jumail: ['', [Validators.required, Validators.email, Validators.pattern(/\b[A-Za-z0-9._%+-]+@gmail\.com\b/)]],
       jucompny: ['', Validators.required],
       jutitle: ['', Validators.required],
       juresume: [''],
