@@ -14,7 +14,7 @@ export class ApplyjobComponent implements OnInit {
   jobTitle: string | null = null;
   companyName: string | null = null;
   empId: string | null = null;
-
+  imageSrc: string = 'https://global.discourse-cdn.com/turtlehead/optimized/2X/c/c830d1dee245de3c851f0f88b6c57c83c69f3ace_2_250x250.png';
   myformsubmission!: FormGroup; // Initialize with an empty group
   currentStep = 1;
   // router: any;
@@ -107,5 +107,21 @@ this.router.navigate(['/dashboarduser']);
     this.currentStep--;
     this.saveFormDataToLocalStorage();
   }
-
+  onImageSelect(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    
+    if (inputElement.files && inputElement.files.length > 0) {
+      const file = inputElement.files[0];
+  
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imageSrc = reader.result as string;
+  
+        if (typeof reader.result === 'string') {
+          console.log('Base64 Image Data:', reader.result);
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  }
 }
