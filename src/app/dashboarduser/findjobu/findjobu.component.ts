@@ -24,7 +24,9 @@ export class FindjobuComponent {
   searchJobTitle: string = ''; // Add this property for job title search
   searchLocation: string = ''; // Add this property for location search
   filteredJobs: Job[] = []; // Add this property for storing filtered jobs
-
+  allJobTitles: string[] = [];
+  allLocations: string[] = [];
+  
   showJobFeed = true;
   showJobSearches = false;
   selectedJob: Job | null = null;
@@ -83,6 +85,10 @@ export class FindjobuComponent {
       this.fetchApplyJob();
       this.filterJobs();
     });
+
+
+    this.allJobTitles = this.data.map((job) => job.jobtitle);
+    this.allLocations = this.data.map((job) => job.locationjob);
   }
 
   fetchApplyJob() {
@@ -111,5 +117,17 @@ export class FindjobuComponent {
       this.filteredJobs = this.data;
     }
   }
-                                   
+  showJobTitleDropdown = false;
+  showLocationDropdown = false;
+  
+  selectJobTitle(title: string): void {
+    this.searchJobTitle = title;
+    this.showJobTitleDropdown = false;
+  }
+  
+  selectLocation(location: string): void {
+    this.searchLocation = location;
+    this.showLocationDropdown = false;
+  }
+                       
 }
